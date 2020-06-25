@@ -86,16 +86,38 @@ public class FirstHW {
         System.out.println("High-Temp: " + driver.findElement(highTemp).getText());
 
         String feelsLike1 = driver.findElement(feelsLike).getText();
+        //System.out.println(feelsLike1.substring(0, 2));
+        String lowTemp1 = driver.findElement(lowTemp).getText();
+        String highTemp1 = driver.findElement(highTemp).getText();
 
-        String tempfeels = "77˚";
+        String feelsLikeTemp = feelsLike1.substring(0, 2);
+        String lowTemperature = lowTemp1.substring(0, 2);
+        String highTemperature = highTemp1.substring(0, 2);
 
-        int temp = Integer.valueOf(feelsLike1);
-        System.out.println(temp);
+        int feelsTemper = Integer.valueOf(feelsLikeTemp);
+        //int temp = Integer.parseInt(feelsLike1);
+        //System.out.println(feelsTemper);
 
+        int lowTemper = Integer.valueOf(lowTemperature);
+        //System.out.println(lowTemper);
 
+        int highTemper = Integer.valueOf(highTemperature);
+        //System.out.println(highTemper);
 
+        if(lowTemper < feelsTemper && feelsTemper < highTemper) {
+            System.out.println("Feels-Like: " + feelsTemper +"˚");
+        } else {
+            System.out.println("Not the right temperature");
+        }
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driver.close();
 
     }
-
 
 }
