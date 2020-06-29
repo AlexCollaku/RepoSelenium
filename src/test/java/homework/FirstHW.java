@@ -29,12 +29,12 @@ public class FirstHW {
 
         driver.get("https://www.facebook.com/");
 
-        By firstName = By.xpath("//input[contains(@aria-label, 'First n')]");
-        By lastName = By.xpath("//input[contains(@aria-label, 'Last n') and @type='text']");
-        By emailAddress = By.xpath("//input[starts-with(@aria-label, 'Mobile num') and @type='text']");
+        By firstName = By.name("firstname");
+        By lastName = By.name("lastname");
+        By emailAddress = By.name("reg_email__");
         By password = By.xpath("//input[starts-with(@autocomplete, 'new-pass') or contains(@data-type, 'pass')]");
         By signUp = By.name("websubmit");
-        By reEnterEmail = By.xpath("//input[contains(@aria-label, 'Re-enter')]");
+        By reEnterEmail = By.name("reg_email_confirmation__");
         By errorMsg = By.xpath("//div[contains(text(), 'Please choose')]");
 
         driver.findElement(firstName).sendKeys("FIRSTNAME");
